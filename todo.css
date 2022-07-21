@@ -1,0 +1,127 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: black;
+  height: 100px;
+}
+
+header h1 {
+  margin: 0;
+  padding: 50px;
+  color: #fff;
+}
+
+header button {
+  border-radius: 10px;
+  border: 0;
+  margin-right: 50px;
+  width: 130px;
+  height: 40px;
+  background-color: #fd8b64;
+}
+
+.eventsinfo {
+  margin: 10px 10px 10px 10px;
+  border-radius: 20px;
+  border: 0;
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  background-color: #82e8ab;
+}
+
+.eventsinfo h2 {
+  font-size: 20px;
+}
+
+.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.main .view {
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+  margin: 20px 100px;
+}
+
+.main .view input {
+  width: 500px;
+  height: 40px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.main .view button {
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #fd8b64;
+  border: 0;
+}
+
+.main .view ul {
+  padding: 10px 0px 10px 10px;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 1em;
+}
+
+.main .view ul li {
+  background-color: #82e8ab;
+  height: 40px;
+  padding-top: 20px;
+  padding-left: 25px;
+  text-decoration: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.main .view ul li i {
+  margin-right: 20px;
+  margin-left: 650px;
+}
+
+.main .add {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin: 30px 100px 20px 50px;
+}
+
+.main .add button {
+  background-color: #000;
+  margin-bottom: 20px;
+  height: 40px;
+  color: #fff;
+  padding: 10px 10px;
+  border-radius: 10px;
+}
+
+.main .add input {
+  height: 100px;
+  width: 285px;
+  font-size: 20px;
+}
+/*# sourceMappingURL=todo.css.map */
