@@ -64,15 +64,19 @@ header{
         grid-gap:1em;
     li{
         background-color:rgb(130,232,171) ;
-        height: 40px;
-        padding-top: 20px;
+        height: 50px;
         padding-left: 25px;
         text-decoration: none;
         display: flex;
-        
+        justify-content: space-between;
+        align-items: center;
     i{
-        margin-right: 20px;
-        margin-left: 650px;
+        margin-right: 25px;
+        cursor: pointer;
+        
+    }
+    #check{
+        
     }
     }
     }
