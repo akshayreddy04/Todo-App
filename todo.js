@@ -1,26 +1,22 @@
 const addevent = document.getElementById("addbtn");
 const list = document.getElementById("task");
-const deletebtn = document.getElementsByClassName("fa-solid fa-trash-can")[0];
 const searchbtn = document.getElementById("searchbar");
-const checkicon = document.getElementsByClassName(
-  "fa-solid fa-square-check"
-)[0];
-const uncheckicon = document.getElementsByClassName(
-  "fa-solid fa-square-xmark"
-)[0];
+
 
 addevent.addEventListener("click", addtask);
-deletebtn.addEventListener("click", deletetask);
 searchbtn.addEventListener("keyup", searchtask);
-checkicon.addEventListener("click", checktask);
-uncheckicon.addEventListener("click", unchecktask);
+
 
 function addtask(e) {
   const item = document.getElementById("item");
   const li = document.createElement("li");
+  const span=document.createElement("span");
   const options = document.createElement("li");
-  li.className = "liitems";
-  li.appendChild(document.createTextNode(item.value));
+  span.id = "task";
+  span.appendChild(document.createTextNode(item.value));
+  li.appendChild(span);
+
+  span.addEventListener("click",edittask);
   //delete button
   const deletebtn = document.createElement("i");
   deletebtn.className = "fa-solid fa-trash-can";
@@ -66,17 +62,44 @@ function checktask(e) {
   const task = e.target.parentElement.parentElement;
   const icons = e.target.parentElement;
   const self = e.target;
+  const sibling=e.target.nextSibling;
   task.style.backgroundColor = "green";
   icons.style.backgroundColor = "green";
   self.style.display = "none";
-  icons.display = "flex";
+  sibling.style.display = "flex";
 }
 
 function unchecktask(e) {
   const task = e.target.parentElement.parentElement;
   const icons = e.target.parentElement;
+  const self = e.target;
+  const sibling=e.target.previousSibling;
   task.style.backgroundColor = "rgb(130,232,171)";
   icons.style.backgroundColor = "rgb(130,232,171)";
-  checkicon.style.display = "flex";
-  uncheckicon.style.display = "none";
+  self.style.display = "none";
+  sibling.style.display = "flex";
+}
+
+function edittask(e){
+    const prevtask=e.target;
+    const prevtext=e.target.innerText;
+    prevtask.style.display="none";
+    const editbar=document.createElement("input");
+    editbar.id="edit";
+    editbar.value = prevtext;
+    const parent = e.target.parentElement;
+    parent.prepend(editbar);
+    const changes = document.getElementById("edit");
+    changes.addEventListener("keydown", function (e) {
+        if (e.code === "Enter") {  
+            changes.style.display='none';
+            savetask(e);
+        }
+    });
+    
+    function savetask(e) {
+      prevtask.style.display="flex";
+      const setvalue=e.target.value;
+      prevtask.innerText=setvalue;
+    }
 }

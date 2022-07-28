@@ -6,24 +6,32 @@ body {
 header {
   margin: 0;
   padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgb(0, 0, 0);
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: black;
   height: 100px;
 }
+
 header h1 {
   margin: 0;
   padding: 50px;
   color: #fff;
 }
+
 header button {
   border-radius: 10px;
   border: 0;
   margin-right: 50px;
   width: 130px;
   height: 40px;
-  background-color: rgb(253, 139, 100);
+  background-color: #fd8b64;
 }
 
 .eventsinfo {
@@ -31,60 +39,91 @@ header button {
   border-radius: 20px;
   border: 0;
   height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-around;
-  background-color: rgb(130, 232, 171);
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  background-color: #82e8ab;
 }
+
 .eventsinfo h2 {
   font-size: 20px;
 }
 
 .main {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
+
 .main .view {
-  flex: 3;
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
   margin: 20px 100px;
 }
-.main .view input {
+
+.main .view #searchbar {
   width: 500px;
   height: 40px;
   border-radius: 10px;
   text-align: center;
   font-size: 15px;
 }
+
 .main .view button {
   width: 100px;
   height: 50px;
   border-radius: 10px;
-  background-color: rgb(253, 139, 100);
+  background-color: #fd8b64;
   border: 0;
 }
+
 .main .view ul {
   padding: 10px 0px 10px 10px;
+  display: -ms-grid;
   display: grid;
   grid-gap: 1em;
 }
+
 .main .view ul li {
-  background-color: rgb(130, 232, 171);
+  background-color: #82e8ab;
   height: 50px;
   padding-left: 25px;
   text-decoration: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
+.main .view ul li #edit {
+  border-radius: 5px;
+}
+
 .main .view ul li i {
+  float: right;
   margin-right: 25px;
   cursor: pointer;
 }
+
 .main .view ul li #uncheck {
   display: none;
 }
+
 .main .add {
-  flex: 1;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   margin: 30px 100px 20px 50px;
 }
+
 .main .add button {
   background-color: #000;
   margin-bottom: 20px;
@@ -93,8 +132,10 @@ header button {
   padding: 10px 10px;
   border-radius: 10px;
 }
+
 .main .add input {
   height: 100px;
   width: 285px;
   font-size: 20px;
-}/*# sourceMappingURL=todo.css.map */
+}
+/*# sourceMappingURL=todo.css.map */
