@@ -59,6 +59,12 @@ header{
         background-color:rgb(253,139,100);
         border: 0;
     }
+    #completed{
+        display: none;
+    }
+    #incompleted{
+        display: none;
+    }
    
     ul{
         padding: 10px 0px 10px 0px;
