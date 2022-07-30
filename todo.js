@@ -1,10 +1,16 @@
 const addevent = document.getElementById("addbtn");
 const list = document.getElementById("task");
 const searchbtn = document.getElementById("searchbar");
-
+let totalevents=0;
+let completedevents=0;
 
 addevent.addEventListener("click", addtask);
 searchbtn.addEventListener("keyup", searchtask);
+// list.addEventListener('click', eventDelegation);
+
+// function eventDelegation(e){
+//     console.log(e, e.target)
+// }
 
 
 function addtask(e) {
@@ -15,6 +21,7 @@ function addtask(e) {
   span.id = "task";
   span.appendChild(document.createTextNode(item.value));
   li.appendChild(span);
+  item.value="";
 
   span.addEventListener("click",edittask);
   //delete button
@@ -35,12 +42,14 @@ function addtask(e) {
   uncheckbtn.addEventListener("click", unchecktask);
   li.appendChild(options);
   list.appendChild(li);
+  totalevents++;
 }
 
 function deletetask(e) {
   if (confirm("are you sure")) {
     const li = e.target.parentElement.parentElement;
     list.removeChild(li);
+    totalevents--;
   }
 }
 
@@ -67,6 +76,7 @@ function checktask(e) {
   icons.style.backgroundColor = "green";
   self.style.display = "none";
   sibling.style.display = "flex";
+  completedevents++;
 }
 
 function unchecktask(e) {
@@ -78,6 +88,7 @@ function unchecktask(e) {
   icons.style.backgroundColor = "rgb(130,232,171)";
   self.style.display = "none";
   sibling.style.display = "flex";
+  completedevents--;
 }
 
 function edittask(e){
@@ -89,10 +100,16 @@ function edittask(e){
     editbar.value = prevtext;
     const parent = e.target.parentElement;
     parent.prepend(editbar);
-    const changes = document.getElementById("edit");
-    changes.addEventListener("keydown", function (e) {
+    editbar.focus();
+    editbar.addEventListener("blur", function(e) {
+        editbar.removeEventListener('blur', e)
+        parent.removeChild(editbar)
+        savetask(e);
+    });
+    editbar.addEventListener("keydown", function (e) {
         if (e.code === "Enter") {  
-            changes.style.display='none';
+            editbar.removeEventListener('keydown', e)
+            parent.removeChild(editbar)
             savetask(e);
         }
     });
